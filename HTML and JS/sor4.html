@@ -1,0 +1,258 @@
+<title>Streets of Rage 4 Random Character & Moveset Picker</title>
+<script>
+// Variables
+
+// Character Class
+class character {
+	constructor(name, moves)
+	{
+		this.name = name; // character's name
+		this.moves = moves; // character's moves, an array in an array (2d array)
+	}
+}
+
+// Format: Name, Moves (Blitz, Defensive Special, Offensive Special, Air Special (if applicable), Star Special (always))
+let sor1axel = new character("Axel-SOR1",[["Summon Police","Pipe Rage"]]);
+let sor2axel = new character("Axel-SOR2",[["Grand Upper","Tiger Knee"],["Dragon Wing","Tornado Kick"],["Dragon Smash","Dragon Dash Blow"],["Grand Dragon Wing","Spinning Dragon Upper"]]);
+let sor3axel = new character("Axel-SOR3",[["Grand Upper","Scissors Kick"],["Dragon Wing","Spinning Body Blow"],["Dragon Smash","Dragon Punch"],["Spinning Body Smash","Spirit Blade"]]);
+let sor4axel = new character("Axel",[["Grand Upper","Dragon Roll"],["Dragon Wing","Dragon Upper"],["Dragon Smash","Dragon Bite"],["Dragon Dive","Dragon Crush"],["Dragon Burst","Ultimate Dragon Wing"]]);
+let sor1blaze = new character("Blaze-SOR1",[["Police Call","Drill Kick"]]);
+let sor2blaze = new character("Blaze-SOR2",[["Hishousouzan","Elbow Strike"],["Embukyako","Spinning Dive"],["Kikou Shou","Aerial Grab"],["Tumbling","Ring of Fire"]]);
+let sor3blaze = new character("Blaze-SOR3",[["Hishousouzan","Chou Reppa Dan"],["Embukyako","Energy Burst"],["Kikou Shou","Spirit Knife"],["Razor Sliding Tackle","Slice and Dice"]]);
+let sor4blaze = new character("Blaze",[["Hishousouzan","Rekkaken"],["Embukyako","Uraken Uchi"],["Kikou Shou","Hien Zan"],["Tobi Kyaku","Shin Hishousouzan"],["Tamashi Age","Shin Kikou Shou"]]);
+let sor1adam = new character("Adam-SOR1",[["Summon Police","Slash Kick"]]);
+let sor4adam = new character("Adam",[["Uzi Punch","Sword Upper"],["Chopper","Split Fangs"],["Howl Fang","Sword Smash"],["Air Chopper","Slash Kick"],["Sword Strike","Lift Off"]]);
+let sor2max = new character("Max-SOR2",[["Sliding Tackle","Power Chop"],["Spinning Knuckle Bomb","Hammer Slam"],["Thunder Tackle","Rolling Grab"],["Giant Swing","Cyclone Knuckle Bomb"]]);
+let sor4max = new character("Max",[["Power Slide","Clothes Lining"],["Spinning Knuckle Bomb","Spinning Knuckle Vortex"],["Thunder Tackle","Rolling Grab"],["Body Slam","Thunder Strike"],["Thunder Strikes","Iron Will"]]);
+let sor2skate = new character("Skate-SOR2",[["Flying Headbutt","Inline Rush"],["Spinning Attack","Cannonball"],["Corkscrew Kick","Somersault Kick"],["Breakdance","Drilling Strike"]]);
+let sor3skate = new character("Skate-SOR3",[["Flying Headbutt","Ground Roll"],["Spinning Attack","Get Off Me"],["Skating Fist Fury","Flash Kick"],["Ground Roll Smash","Human Cannonball"]]);
+let sor3shiva = new character("Shiva-SOR3",[["Dashing Moon Kick","Dark Dash"],["Moon Kick","Ki Strike"],["Final Crash","Diving Moon Kick"],["Ultimate Final Crash","Asura Ranbu"]]);
+let sor4shiva = new character("Shiva",[["Final Crash","Flying Kick"],["Flaming Circular Kick","Hashinshou"],["Senretsu Ken","Spirit Palm"],["Air Senretsu Ken","Spirit Kick"],["Shin Hashinshou","Spirit Dance"]]);
+let zan = new character("Dr.Zan-SOR3",[["Elbow Slam Shield","The Claw"],["Shock Treatment","Energy Ball"],["Electric Grab","Guillotine"],["Super Shield Charge","Big Energy Ball"]]);
+let roo = new character("Roo-SOR3",[["Handbrake","Gatling Kick"],["Somersault Tail Whip","Spinning Kick"],["Hurricane Kick","Rolling Attack"],["Air Tail Whip","Air Rolling Attack"],["Here Comes Bruce","Earthquake"]]);
+let floyd = new character("Floyd",[["Thunder Twins","Gatling Punches"],["Thunder Sphere","Thunder Trap"],["Magnetic Grab","Rakushin Cannon"],["Thunder Pounce","Power Slide"],["Rakushin Beam","Thunder Dome"]]);
+let estel = new character("Estel",[["Boot Mark","Flying Scythe"],["Flashbang","Grenade"],["Police Tackle","Sucker Punch"],["Air Grenade","Air Flashbang"],["Tactical Support","Surgical Strike"]]);
+let cherry = new character("Cherry",[["Flying Knee","Sliding Knee"],["Sound Check","Somersault Kick"],["Townshend Smash","Neck Break"],["Air Townshend Smash","Special Stage Effects"],["Stage Entrance","Triple Townshend"]]);
+
+var chars = [
+sor1axel,
+sor2axel, 
+sor3axel,
+sor4axel,
+sor1blaze,
+sor2blaze,
+sor3blaze,
+sor4blaze,
+sor1adam,
+sor4adam,
+sor2max,
+sor4max,
+sor2skate,
+sor3skate,
+sor3shiva,
+sor4shiva,
+zan,
+roo, 
+floyd,
+estel,
+cherry
+]
+
+var showmoves = 2; //0 No / 1 Yes / 2 Both
+
+// Functions
+
+function randompick(character) // Randomly picks moveset, takes character as specified input
+{
+	if(character === undefined)
+	{
+		var chara = chars[Math.floor((Math.random() * chars.length) + 0)];
+	}
+	else
+	{
+		var chara = character;
+	}
+	var movesa = []
+	for(var i = 0; i < 5; i++)
+	{
+		var form = Math.floor(Math.random() * 2);
+		if(form == 0)
+		{
+			movesa[i] = 0; // Normal
+		}
+		if(form == 1)
+		{
+			movesa[i] = 1; // Alt
+		}
+	}
+	if(showmoves == 0 || showmoves == 2)
+	{
+		var movesb = []
+		for(var i = 0; i < 5; i++)
+		{
+			if(movesa[i] == 0)
+			{
+				movesb[i] = "Normal";
+			}
+			else if(movesa[i] == 1)
+			{
+				movesb[i] = "Alt";
+			}
+		}
+	}
+	switch(showmoves)
+	{
+		case 0:
+			if(chara.moves.length == 1)
+			{
+				alert(`Character: ${chara.name}\nStar Move: ${movesb[0]}`);
+			}
+			else if(chara.moves.length == 4)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${movesb[0]}\nDefensive Special: ${movesb[1]}\nOffensive Special: ${movesb[2]}\nStar Move: ${movesb[3]}`);
+			}
+			else if(chara.moves.length == 5)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${movesb[0]}\nDefensive Special: ${movesb[1]}\nOffensive Special: ${movesb[2]}\nAir Special: ${movesb[3]}\nStar Move: ${movesb[4]}`);
+			}
+			break;
+		case 1:
+			if(chara.moves.length == 1)
+			{
+				alert(`Character: ${chara.name}\nStar Move: ${chara.moves[0][movesa[0]]}`);
+			}
+			else if(chara.moves.length == 4)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${chara.moves[0][movesa[0]]}\nDefensive Special: ${chara.moves[1][movesa[1]]}\nOffensive Special: ${chara.moves[2][movesa[2]]}\nStar Move: ${chara.moves[3][movesa[3]]}`);
+			}
+			else if(chara.moves.length == 5)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${chara.moves[0][movesa[0]]}\nDefensive Special: ${chara.moves[1][movesa[1]]}\nOffensive Special: ${chara.moves[2][movesa[2]]}\nAir Special: ${chara.moves[3][movesa[3]]}\nStar Move: ${chara.moves[4][movesa[4]]}`);
+			}
+			break;
+		case 2:
+			if(chara.moves.length == 1)
+			{
+				alert(`Character: ${chara.name}\nStar Move: ${chara.moves[0][movesa[0]]} (${movesb[0]})`);
+			}
+			else if(chara.moves.length == 4)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${chara.moves[0][movesa[0]]} (${movesb[0]})\nDefensive Special: ${chara.moves[1][movesa[1]]} (${movesb[1]})\nOffensive Special: ${chara.moves[2][movesa[2]]} (${movesb[2]})\nStar Move: ${chara.moves[3][movesa[3]]} (${movesb[3]})`);
+			}
+			else if(chara.moves.length == 5)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${chara.moves[0][movesa[0]]} (${movesb[0]})\nDefensive Special: ${chara.moves[1][movesa[1]]} (${movesb[1]})\nOffensive Special: ${chara.moves[2][movesa[2]]} (${movesb[2]})\nAir Special: ${chara.moves[3][movesa[3]]} (${movesb[3]})\nStar Move: ${chara.moves[4][movesa[4]]} (${movesb[4]})`);
+			}
+			break;
+	}
+}
+function pick(thing)
+{
+	switch(thing)
+	{
+		case 0: // Characters
+			alert(`Character: ${chars[Math.floor((Math.random() * chars.length) + 0)].name}`);
+			break;
+			
+		case 1: // Normal/Alt for Moveset
+			var chara = prompt("Enter the character name");
+			var charf;
+			for (var i = 0; i < chars.length; i++)
+			{
+				if(chars[i].name == chara)
+				{
+					charaf = chars[i];
+				}
+			}
+			randompick(charaf);
+			/*var moves = []
+			for(var i = 0; i < 5; i++)
+			{
+				var form = Math.floor(Math.random() * 2);
+				if(form == 0)
+				{
+					moves[i] = "Normal";
+				}
+				if(form == 1)
+				{
+					moves[i] = "Alt";
+				}
+			}
+			alert(`Blitz: ${moves[0]} \nDefensive Special: ${moves[1]}\nOffensive Special: ${moves[2]}\nAir Special: ${moves[3]}\nStar Move: ${moves[4]}`);
+			*/break;
+		
+		case 2: // Characters & Moveset
+			randompick();
+			/*var chara = chars[Math.floor((Math.random() * chars.length) + 0)];
+			var movesa = []
+			for(var i = 0; i < 5; i++)
+			{
+				var form = Math.floor(Math.random() * 2);
+				if(form == 0)
+				{
+					movesa[i] = 0; // Normal
+				}
+				if(form == 1)
+				{
+					movesa[i] = 1; // Alt
+				}
+			}
+			if(chara.moves.length == 1)
+			{
+				alert(`Character: ${chara.name}\nStar Move: ${chara.moves[0][movesa[0]]}`);
+			}
+			else if(chara.moves.length == 4)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${chara.moves[0][movesa[0]]} \nDefensive Special: ${chara.moves[1][movesa[1]]}\nOffensive Special: ${chara.moves[2][movesa[2]]}\nStar Move: ${chara.moves[3][movesa[3]]}`);
+			}
+			else if(chara.moves.length == 5)
+			{
+				alert(`Character: ${chara.name}\nBlitz: ${chara.moves[0][movesa[0]]} \nDefensive Special: ${chara.moves[1][movesa[1]]}\nOffensive Special: ${chara.moves[2][movesa[2]]}\nAir Special: ${chara.moves[3][movesa[3]]}\nStar Move: ${chara.moves[4][movesa[4]]}`);
+			}*/
+			break;	
+			
+		case 3: // Stage
+			alert(`Stage ${Math.floor((Math.random() * 12) + 1)}`);
+			break;
+			
+		case 4: // Random/Weekly Survival
+			var form = Math.floor(Math.random() * 2);
+			if(form == 0)
+			{
+				alert("Random Survival");
+			}
+			if(form == 1)
+			{
+				alert("Weekly Survival");
+			}
+			break;
+	}
+}
+function changemoves(value)
+{
+	switch(value)
+	{
+		case 0:
+			showmoves = 0;
+			console.log(showmoves);
+			break;
+		case 1:
+			showmoves = 1;
+			console.log(showmoves);
+			break;
+		case 2:
+			showmoves = 2;
+			console.log(showmoves);
+			break;
+	}
+}
+</script>
+<body style="background-color: black; color: white;">
+<h1>Streets of Rage 4 Random Character & Moveset Picker</h1>
+<button onclick="pick(0)">Randomly Pick a Character</button><br>
+<button onclick="pick(1)">Randomly Pick a Character's Moveset Scheme</button><br>
+<button onclick="pick(2)">Randomly Pick a Character And Moveset</button><br>
+<button onclick="pick(3)">Randomly Pick a Stage</button><br>
+<button onclick="pick(4)">Randomly Pick Survival</button><br>
+<button onclick="changemoves(0)"></button><button onclick="changemoves(1)"></button><button onclick="changemoves(2)"></button>
+</body>
