@@ -82,15 +82,15 @@ public class sor4
 			case 2:
 				if(chara.moves.length == 1)
 				{
-					moveso = "Character: "+chara.name+"\nStar Move: "+chara.moves[0][movesa[0]]}+" ("+movesb[0]+")");
+					moveso = "Character: "+chara.name+"\nStar Move: "+chara.moves[0][movesa[0]]+" ("+movesb[0]+")");
 				}
 				else if(chara.moves.length == 4)
 				{
-					moveso = "Character: "+chara.name+"\nBlitz: "+chara.moves[0][movesa[0]]} +" ("+movesb[0]+")\nDefensive Special: "+chara.moves[1][movesa[1]]+"("+movesb[1]+")\nOffensive Special: "+chara.moves[2][movesa[2]]+" ("+movesb[2]+")\nStar Move: "+chara.moves[3][movesa[3]]+" ("+movesb[3]+")");
+					moveso = "Character: "+chara.name+"\nBlitz: "+chara.moves[0][movesa[0]] +" ("+movesb[0]+")\nDefensive Special: "+chara.moves[1][movesa[1]]+"("+movesb[1]+")\nOffensive Special: "+chara.moves[2][movesa[2]]+" ("+movesb[2]+")\nStar Move: "+chara.moves[3][movesa[3]]+" ("+movesb[3]+")");
 				}
 				else if(chara.moves.length == 5)
 				{
-					moveso = "Character: "+chara.name+"\nBlitz: "+chara.moves[0][movesa[0]]} +" ("+movesb[0]+")\nDefensive Special: "+chara.moves[1][movesa[1]]+"("+movesb[1]+")\nOffensive Special: "+chara.moves[2][movesa[2]]+" ("+movesb[2]+")\nAir Special: "+chara.moves[3][movesa[3]]+" ("+movesb[3]+")\nStar Move: "+chara.moves[4][movesa[4]]+" ("+movesb[4]+")");
+					moveso = "Character: "+chara.name+"\nBlitz: "+chara.moves[0][movesa[0]] +" ("+movesb[0]+")\nDefensive Special: "+chara.moves[1][movesa[1]]+"("+movesb[1]+")\nOffensive Special: "+chara.moves[2][movesa[2]]+" ("+movesb[2]+")\nAir Special: "+chara.moves[3][movesa[3]]+" ("+movesb[3]+")\nStar Move: "+chara.moves[4][movesa[4]]+" ("+movesb[4]+")");
 				}
 				break;
 		}
